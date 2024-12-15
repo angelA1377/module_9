@@ -1,15 +1,13 @@
 first = ['Strings', 'Student', 'Computers']
 second = ['Строка', 'Урбан', 'Компьютер']
 
-# Генераторная сборка для первой переменной
-first_result = (abs(len(f) - len(s)) for f, s in zip(first, second) if len(f) != len(s))
+first_result = (len(f) - len(s) for f, s in zip(first, second) if len(f) != len(s))
+second_result = (len(f) == len(s) for i in range(len(first)) for f, s in [(first[i], second[i])])
 
-# Генераторная сборка для второй переменной
-second_result = (len(first[i]) != len(second[i]) for i in range(len(first)))
 
-# Пример
-print(list(first_result))   # [1, 2]
-print(list(second_result))  # [False, False, True]
+
+print(list(first_result))
+print(list(second_result))
 
 
 
